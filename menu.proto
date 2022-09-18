@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package menu;
+
+message Menu {
+    string id = 1;
+    string name = 2;
+    int32 price = 3;
+}
+
+message CreateMenuInput  {
+    string name = 1;
+    int32 price = 2;
+}
+
+message UpdateMenuInput  {
+    string id = 1;
+    string name = 2;
+    int32 price = 3;
+}
+
+message MenuList {
+    repeated Menu data = 4;
+}
+
+message MenuById {
+    string id = 1;
+}
+
+message Empty {}
+
+service MenuService {
+    rpc FindMenu (Empty) returns (MenuList);
+    rpc FindMenuById (MenuById) returns (Menu);
+    rpc CreateMenu (CreateMenuInput) returns (Menu);
+    rpc UpdateMenu (UpdateMenuInput) returns (Menu);
+}

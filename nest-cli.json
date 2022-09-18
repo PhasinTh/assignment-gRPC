@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/bistro/src",
+  "monorepo": true,
+  "root": "apps/bistro",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/bistro/tsconfig.app.json"
+  },
+  "projects": {
+    "bistro": {
+      "type": "application",
+      "root": "apps/bistro",
+      "entryFile": "main",
+      "sourceRoot": "apps/bistro/src",
+      "compilerOptions": {
+        "assets": [
+          "**/*.proto"
+        ],
+        "watchAssets": true,
+        "tsConfigPath": "apps/bistro/tsconfig.app.json"
+      }
+    },
+    "menu-service": {
+      "type": "application",
+      "root": "apps/menu-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/menu-service/src",
+      "compilerOptions": {
+        "assets": [
+          "**/*.proto"
+        ],
+        "watchAssets": true,
+        "webpack": true,
+        "tsConfigPath": "apps/menu-service/tsconfig.app.json"
+      }
+    },
+    "hero-service": {
+      "type": "application",
+      "root": "apps/hero-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/hero-service/src",
+      "compilerOptions": {
+        "assets": [
+          "**/*.proto"
+        ],
+        "watchAssets": true,
+        "tsConfigPath": "apps/hero-service/tsconfig.app.json"
+      }
+    }
+  }
+}
